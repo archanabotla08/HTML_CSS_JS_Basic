@@ -63,7 +63,7 @@
         
         const pwd = document.querySelector('.password-error');
         password.addEventListener('input', function() {
-            const regPwd = /^[a-zA-Z0-9@#!]{8}[a-zA-z0-9@#!]*/;
+            const regPwd = /^[a-zA-Z0-9@#!]{5}[A-Z]{1}[A-Z]*[0-9]{1}[0-9]*[@#%]{1}[@#%]*/;
             if (regPwd.test(password.value))
             pwd.textContent = "";
             else pwd.textContent = "Password Invalid";
