@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>User Forms</title>
+    <link rel="stylesheet" href="../css//formStyleSheet.css">
+</head>
+
+<body>
+    <form>
+        <header class="headerContainer">
+            <h2>HTML 5 Form Input Fields</h2>
+        </header>
+        <div>
+            <label for="text">Enter Name: </label>
+            <input type="text" id="text" name="text">
+            <error-output class="text-error" for="text"></error-output>
+        </div>
+        <div>
+            <label for="pwd">Enter Password: </label>
+            <input type="password" id="pwd" name="pwd">
+        </div>
+        <div>
+            <label for="email">Enter Email: </label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="url">Enter Url: </label>
+            <input type="url" id="url" name="url">
+        </div>
+        <div>
+            <label for="number">Enter Number: </label>
+            <input type="number" id="number" name="number">
+        </div>
+        <div>
+            <label for="tel">Enter PhoneNumber: </label>
+            <input type="tel" id="tel" name="tel">
+        </div>
+        <div>
+            <label for="search">Enter Search Type: </label>
+            <input type="search" id="search" name="search">
+        </div>
+        <div class="nativeDateTimePicker">
+            <label for="party">Enter Date for Party: </label>
+            <input type="datetime-local" id="party" name="party">
+            <span class="validity"></span>
+        </div>
+        <div>
+            <label for="salary">Choose your salary: </label>
+            <input type="range" id="salary" name="salary" min="100000" max="500000" step="100" value="400000">
+            <output-class="salary-output" for="salary">400000</output-class>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+    <script>
+        const text = document.querySelector('#text');
+        const textError = document.querySelector('.text-error');
+        text.addEventListener('input', function() {
+            const regName = /^[A-Z][a-z]{2,}$/;
+            if (regName.test(text.value))
+                textError.textContent = "";
+            else textError.textContent = " first name Invalid";
+        });
+
+        const salary = document.querySelector('#salary');
+        const output = document.querySelector('salary-output');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function() {
+            output.textContent = salary.value;
+        });
+    </script>
+</body>
+
+</html>
